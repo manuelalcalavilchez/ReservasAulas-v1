@@ -269,8 +269,12 @@ public void listarReservas() {
 		if(reservas.isEmpty())
 			System.out.println("No hay ninguna reserva hecha.");
 		else
-			System.out.println(reservas);
+			for ( String reserva :reservas)
+                            {
+                                System.out.println(reserva);
+                            }
 	}
+        
 
 public void listarReservasAula() {
 		Consola.mostrarCabecera("LISTAR RESERVAS AULA");
