@@ -43,7 +43,7 @@ public class Aulas {
 
     private List<Aula> copiaProfundaAulas(List<Aula> aulas) {
 		List<Aula> otrasAulas = new ArrayList<>();
-                for (Aula aula : coleccionAulas) {
+                for (Aula aula : aulas) {
                     otrasAulas.add(new Aula(aula));
                 }
 		return otrasAulas;

@@ -16,7 +16,7 @@ import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Profesor;
  * @author Manuel
  */
 public class Profesores {
-    //declaracion de variables y array 
+    //declaracion arraylist
 private List<Profesor> coleccionProfesores;
     
     //contructor por defecto
@@ -43,7 +43,7 @@ private List<Profesor> coleccionProfesores;
 
     private List<Profesor> copiaProfundaProfesores(List<Profesor> profesores) {
 		List<Profesor> otrosProfesores = new ArrayList<>();
-		for (Profesor profesor : coleccionProfesores){
+		for (Profesor profesor : profesores){
                     otrosProfesores.add(new Profesor(profesor));
                 }
 		return otrosProfesores;
@@ -89,7 +89,7 @@ private List<Profesor> coleccionProfesores;
         //borrar profesor
        public void borrar(Profesor profesor) throws OperationNotSupportedException {
 		if (profesor == null) {
-			throw new IllegalArgumentException("No se puede borrar un profsor nulo.");
+			throw new IllegalArgumentException("No se puede borrar un profesor nulo.");
 		}
                 
                 if (!coleccionProfesores.remove(profesor)) {
@@ -102,7 +102,7 @@ private List<Profesor> coleccionProfesores;
         public List<String> representar() {
 		List<String> representacion = new ArrayList<>();
 		for (Profesor profesor : coleccionProfesores){
-                    coleccionProfesores.add(new Profesor(profesor));
+                    representacion.add(profesor.toString());
 		}
 		return representacion;
 	}

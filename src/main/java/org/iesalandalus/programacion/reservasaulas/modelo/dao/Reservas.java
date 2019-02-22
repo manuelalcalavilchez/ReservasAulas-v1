@@ -47,7 +47,7 @@ public class Reservas {
 
     private List<Reserva> copiaProfundaReservas(List<Reserva> reservas) {
 		List<Reserva> otrasReservas = new ArrayList<>() ;
-		for (Reserva reserva : coleccionReservas) {
+		for (Reserva reserva : reservas) {
 			otrasReservas.add(new Reserva(reserva));
 		}
 		return otrasReservas;
@@ -89,20 +89,20 @@ public class Reservas {
         //borrar
         public void borrar(Reserva reserva) throws OperationNotSupportedException {
                 if (reserva == null) {
-			throw new IllegalArgumentException("No se puede borrar una reserva nula.");
+			throw new IllegalArgumentException("No se puede anular una reserva nula.");
 		}
                 
                 if (!coleccionReservas.remove(reserva)) {
-			throw new OperationNotSupportedException("La reserva a borrar no existe.");
+			throw new OperationNotSupportedException("La reserva a anular no existe.");
 		}
 	}
         
        
         
-        public List<Reserva> representar() {
-		List<Reserva> representacion = new ArrayList<>();
+        public List<String> representar() {
+		List<String> representacion = new ArrayList<>();
 		for (Reserva reserva : coleccionReservas) {
-			coleccionReservas.add(new Reserva(reserva));
+			representacion.add(reserva.toString());
 		}
 		return representacion;
 	}
@@ -114,8 +114,8 @@ public class Reservas {
 		List<Reserva> reservaAula = new ArrayList<>();
 		
 		for (Reserva reserva : coleccionReservas) {
-                  if( coleccionReservas.contains(aula))
-	
+                  if( reserva.getAula().equals(aula))
+                          	
 				reservaAula.add(new Reserva(reserva));
 				
 			}
@@ -133,7 +133,7 @@ public class Reservas {
 		List<Reserva> reservaProfesor = new ArrayList<>();
 		
 		for (Reserva reserva : coleccionReservas) {
-                     if( coleccionReservas.contains(profesor))
+                     if( reserva.getProfesor().equals(profesor))
 			
 				reservaProfesor.add(new Reserva(reserva));
 			}
@@ -151,7 +151,7 @@ public class Reservas {
 		List<Reserva> reservaPermanencia = new ArrayList<>();
 		
 		for (Reserva reserva : coleccionReservas) {
-                     if( coleccionReservas.contains(permanencia))
+                     if( reserva.getPermanencia().equals(permanencia))
                          reservaPermanencia.add(new Reserva(reserva));
 			}
                 
